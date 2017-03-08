@@ -43,5 +43,5 @@ The caesar cipher is a popular substutution cipher first used by Julius Caesar i
     print(ciphertext)
 
     # Custom shift
-    ciphertext = cipher.caesar("Python is so cool!" 11)
+    ciphertext = cipher.caesar("Python is so cool!", 11)
     print(ciphertext)
