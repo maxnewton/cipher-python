@@ -23,12 +23,7 @@ If you like what I do and want to see more, [consider becoming a Patreon support
 
 # How to install
 
-Cipher++ is designed to be a portable library that can be included in any project. To include Cipher++ in your project, simply download or clone this repository and copy the contents of the "include" folder into your own C++ project.
-
-To download and compile the sample programs that come with Cipher++, choose from one of the following options. First, download or clone the repository:
-
-    git clone https://github.com/maxnewton/cipherplusplus
-    cd cipherplusplus
+Cipher-Python is designed to be a portable library that can be included in any project. To add Cipher-Python to your project, simply download or clone this repository and copy the "cipher" folder into your own Python project.
 
 ## How to use: Atbash cipher
 The Atbash cipher, originally used with the Hebrew alphabet, gets its name from the first, second, and second-to-last letters of the alphabet (Aleph, Tav, Beth, and Shin, or "ATBSh"). To create an atbash cipher alphabet, simply take the alphabet and reverse it. That means "ABCDEFGHIJKLMNOPQRSTUVWXYZ" becomes "ZYXWVUTSRQPONMLKJIHGFEDCBA". Let's take a look at it in action:
@@ -36,4 +31,17 @@ The Atbash cipher, originally used with the Hebrew alphabet, gets its name from 
     import cipher
 
     ciphertext = cipher.atbash("Python is so cool!")
+    print(ciphertext)
+
+## How to use: Caesar cipher
+The caesar cipher is a popular substutution cipher first used by Julius Caesar in his own private correspondence. It's also known as a shift cipher, Caesar's code, or Caesar shift. In a caesar cipher, each letter of the alphabet is shifted left or right by a constant value. For example, because caesar ciphers often shift the alphabet by 3, "a" becomes "d", "b" becomes "e", "c" becomes "f", etc. Cipher-Python defaults to a shift value of 3, but you can override this with any shift value you would like. For example:
+
+    import cipher
+    
+    # Default shift of 3
+    ciphertext = cipher.caesar("Python is so cool!")
+    print(ciphertext)
+
+    # Custom shift
+    ciphertext = cipher.caesar("Python is so cool!" 11)
     print(ciphertext)
