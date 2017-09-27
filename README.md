@@ -12,8 +12,8 @@ Cipher-Python includes:
 With plans to add:
 
 * Transposition ciphers
-  * Columnar transposition cipher (not implemented yet)
-  * Double transposition cipher (not implemented yet)
+  * Columnar transposition cipher
+  * Double transposition cipher
 
 # What's the big deal?
 
@@ -23,25 +23,40 @@ If you like what I do and want to see more, [consider becoming a Patreon support
 
 # How to install
 
-Cipher-Python is designed to be a portable library that can be included in any project. To add Cipher-Python to your project, simply download or clone this repository and copy the "cipher" folder into your own Python project.
+Cipher-Python is designed to be portable, and can be included in any Python project. To add Cipher-Python to your project, simply download or clone this repository and copy the "cipher" folder into your project directory.
 
 ## How to use: Atbash cipher
-The Atbash cipher, originally used with the Hebrew alphabet, gets its name from the first, second, and second-to-last letters of the alphabet (Aleph, Tav, Beth, and Shin, or "ATBSh"). To create an atbash cipher alphabet, simply take the alphabet and reverse it. That means "ABCDEFGHIJKLMNOPQRSTUVWXYZ" becomes "ZYXWVUTSRQPONMLKJIHGFEDCBA". Let's take a look at it in action:
+The Atbash cipher gets its name from the first, second, and second-to-last letters of the Hebrew alphabet (Aleph, Tav, Beth, and Shin, or "ATBSh"). To use this cipher, simply take the alphabet and reverse it ("ABCDEFGHIJKLMNOPQRSTUVWXYZ" becomes "ZYXWVUTSRQPONMLKJIHGFEDCBA"). Let's take a look at it in action:
 
     import cipher
 
-    ciphertext = cipher.atbash("Python is so cool!")
+    ciphertext = cipher.atbash("Hello, world!")
     print(ciphertext)
 
 ## How to use: Caesar cipher
-The caesar cipher is a popular substutution cipher first used by Julius Caesar in his own private correspondence. It's also known as a shift cipher, Caesar's code, or Caesar shift. In a caesar cipher, each letter of the alphabet is shifted left or right by a constant value. For example, because caesar ciphers often shift the alphabet by 3, "a" becomes "d", "b" becomes "e", "c" becomes "f", etc. Cipher-Python defaults to a shift value of 3, but you can override this with any shift value you would like. For example:
+The caesar cipher is one of the most popular substutution ciphers, first used by Julius Caesar in private letters and other correspondence. It's also known as a shift cipher, Caesar's code, or Caesar shift. In a caesar cipher, each letter of the alphabet is shifted left or right by a constant value. Caesar ciphers often shift the alphabet by 3 letters, so "a" becomes "d", "b" becomes "e", "c" becomes "f", etc. Cipher-Python shifts a caesar cipher-encrypted string by 3 letters by default, but you can override this with any number you like. For example:
 
     import cipher
     
     # Default shift of 3
-    ciphertext = cipher.caesar("Python is so cool!")
+    ciphertext = cipher.caesar("Hello, world!")
     print(ciphertext)
 
-    # Custom shift
-    ciphertext = cipher.caesar("Python is so cool!", 11)
+    # Shift alphabet by 11 letters
+    ciphertext = cipher.caesar("Hello, world!", 11)
     print(ciphertext)
+
+# How to use: ROT13 cipher
+A ROT13 cipher splits the alphabet right down the center, so "a" corresponds to "m" (and vise versa), "b" to "n", "c" to "o", etc. More simply, it's a caesar cipher with a constant shift (or ROTation) of 13 letters.
+
+    import cipher
+
+    ciphertext = cipher.rot13("Hello, world!")
+    print(ciphertext)
+
+    # Let's compare it to the caesar cipher (hint: it's the same!)
+    ciphertext = cipher.caesar("Hello, world!", 13)
+    print(ciphertext)
+
+## How to use: Keyword cipher
+
